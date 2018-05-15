@@ -19,7 +19,10 @@ This tutorial will go through a simple terraform script that creates a web serve
 - `sudo mv terraform /usr/local/bin/`
 - Confirm terraform binary is accessible: `terraform --version`
 
+
+
 ## 2. Create sample.tf file
+
 ### Openstack values
 First, we need to get some openstack variables in order to fill in our sample.tf file.
 
@@ -35,6 +38,7 @@ First, we need to get some openstack variables in order to fill in our sample.tf
 - Get the value for `OS_AUTH_URL` (eg. `http://10.0.2.15/identity/v3`)
 - This is your `auth_url`
 - Close the text editor
+
 
 ### Instance values
 Now we need some values to create out instance. We will be using an image and a flabor, so we need these IDs.
@@ -57,6 +61,7 @@ Now we need some values to create out instance. We will be using an image and a 
 - Go to terminal
 - `openstack region list`
 - Note the name of a region eg. `RegionOne`
+
 
 ### Create terraform file
 - `cd` to openstack root directory
@@ -89,6 +94,8 @@ resource "openstack_compute_instance_v2" "server_A" {
 ````
 - Exit back to the terminal
 
+
+
 ## 3. Create openstack instance using terraform instead of GUI
 - Initialize, check what we are managing and start the process of terraform
 - `terraform init`
@@ -96,6 +103,8 @@ resource "openstack_compute_instance_v2" "server_A" {
 - `terraform apply`
 
 - If this is successful, you should see your new instance in openstack at `Project` tab => `Compute` => `Instances`
+
+
 
 ## 4. Create & destroy multiple openstack instance using terraform instead of GUI
 - Go back to sample.tf
